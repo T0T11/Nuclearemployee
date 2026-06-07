@@ -16,7 +16,7 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
     @Override
     public Employee createEmployee(String nombre, int id, Department department, ExperienceLevel experienceLevel, Shift shift) {
         Employee employee = new Employee();
-        employee.setNombre();
+        employee.setNombre(nombre);
         employee.setDepartmento(department);
         employee.setExperienceLevel(experienceLevel);
         employee.setShift(shift);
@@ -27,4 +27,5 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
     public int crewSize(){
        return   employees.size();
     }
+
 }

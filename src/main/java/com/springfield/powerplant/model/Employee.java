@@ -51,4 +51,9 @@ public class Employee {
 
         this.id = id;
     }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
 }
