@@ -28,4 +28,11 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
        return   employees.size();
     }
 
+    @Override
+    public void listCrew(){
+        for (Employee employee : employees) {
+            System.out.println(employee);
+        }
+    }
+
 }

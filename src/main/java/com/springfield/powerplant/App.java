@@ -48,7 +48,7 @@ public class App {
         /*
          * Muestra el listado de empleadas con su info
          */
- /*       employeeService.listCrew();
+       employeeService.listCrew();
 
         /*
          * Historia de Usuario 3: Buscar empleadas por departamento

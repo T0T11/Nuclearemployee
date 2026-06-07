@@ -10,5 +10,6 @@ public interface EmployeeManagementService {
 
    int crewSize();
 
+    void listCrew();
 
 }
