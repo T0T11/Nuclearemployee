@@ -1,59 +1,62 @@
 package com.springfield.powerplant.model;
 
 public class Employee {
-    private float id;
+    private int id;
     private String nombre;
-    private Department departmento;
+    private Department department;
     private Shift shift;
     private ExperienceLevel experienceLevel;
 
-
-    public void setNombre() {
-        this.nombre = nombre;
+    public int getId() {
+        return id;
     }
 
-    public Department getDepartmento() {
-        return this.departmento;
-    }
-
-    public ExperienceLevel getExperienceLevel() {
-        return this.experienceLevel;
-    }
-
-    public Float getId() {
-        return this.id;
-    }
-
-    public Shift getShift() {
-        return this.shift;
+    public void setId(int id) {
+        if (id <= 0) {
+            throw new IllegalArgumentException("se necesita un id positivo");
+        }
+        this.id = id;
     }
 
     public String getNombre() {
-        return this.nombre;
-    }
-
-    public void setDepartmento(Department departmento) {
-        this.departmento = departmento;
-    }
-
-    public void setExperienceLevel(ExperienceLevel experienceLevel) {
-        this.experienceLevel = experienceLevel;
-    }
-
-    public void setShift(Shift shift) {
-        this.shift = shift;
-    }
-
-    public void setId(Float id) {
-        if (id == null) {
-            throw new IllegalArgumentException("se nececita un id");
-        }
-
-        this.id = id;
+        return nombre;
     }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-}
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    public Shift getShift() {
+        return shift;
+    }
+
+    public void setShift(Shift shift) {
+        this.shift = shift;
+    }
+
+    public ExperienceLevel getExperienceLevel() {
+        return experienceLevel;
+    }
+
+    public void setExperienceLevel(ExperienceLevel experienceLevel) {
+        this.experienceLevel = experienceLevel;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Empleado {%d, '%s', %s, %s, %s}",
+                id, nombre, department.name()
+                , experienceLevel.name(), shift.name());
+     } 
+    
+    }
+
+

@@ -16,10 +16,12 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
     @Override
     public Employee createEmployee(String nombre, int id, Department department, ExperienceLevel experienceLevel, Shift shift) {
         Employee employee = new Employee();
+        employee.setId(id);
         employee.setNombre(nombre);
-        employee.setDepartmento(department);
+        employee.setDepartment(department);
         employee.setExperienceLevel(experienceLevel);
         employee.setShift(shift);
+        employees.add(employee);
         return employee;
     }
 
@@ -31,8 +33,25 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
     @Override
     public void listCrew(){
         for (Employee employee : employees) {
-            System.out.println(employee);
+            System.out.println(employee.getNombre() + ", " + employee.getDepartment() + ", " + employee.getExperienceLevel() + ", " + employee.getShift()); }
         }
+    
+    @Override
+    public List<Employee> findEmployeesByDepartment(Department department) {
+        List<Employee> EmployeesInDepartment = new ArrayList<>();
+        for (Employee employee : employees) {
+            if (employee.getDepartment() == department) {
+                EmployeesInDepartment.add(employee);
+            }
+        }
+        return EmployeesInDepartment;
+
     }
 
+    @Override
+    public void changeEmployeeExperienceLevel(Employee empleado, ExperienceLevel newLevel) {
+        empleado.setExperienceLevel(newLevel);
 }
+}
+
+

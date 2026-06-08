@@ -18,10 +18,7 @@ repositories {
     mavenCentral()
 }
 
-tasks.jar {
-    manifest {
-        attributes["Main-Class"] = "com.springfield.powerplant.App"    }
-}
+
 
 
 dependencies {
