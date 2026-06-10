@@ -8,6 +8,8 @@ import com.springfield.powerplant.service.EmployeeManagementService;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class EmployeeManagementServiceImpl implements EmployeeManagementService {
 
@@ -52,6 +54,22 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
     public void changeEmployeeExperienceLevel(Employee empleado, ExperienceLevel newLevel) {
         empleado.setExperienceLevel(newLevel);
 }
-}
+
+
+    @Override
+    public Map<String, Long> getExperienceLevelStatistics() {
+        Map<String, Long> resultado = employees.stream().collect(Collectors.groupingBy(e -> e.getExperienceLevel().name(), Collectors.counting()));
+        return resultado;
+    }
+
+   // @Override
+    //public  boolean isDepartmentFullyCovered(Department departamento){
+    //    boolean iscovered = false;
+
+
+
+      //  return true;
+    //}
+    }
 
 
