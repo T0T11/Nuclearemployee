@@ -28,16 +28,17 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
     }
 
     @Override
-    public int crewSize(){
-       return   employees.size();
+    public int crewSize() {
+        return employees.size();
     }
 
     @Override
-    public void listCrew(){
+    public void listCrew() {
         for (Employee employee : employees) {
-            System.out.println(employee.getNombre() + ", " + employee.getDepartment() + ", " + employee.getExperienceLevel() + ", " + employee.getShift()); }
+            System.out.println(employee.getNombre() + ", " + employee.getDepartment() + ", " + employee.getExperienceLevel() + ", " + employee.getShift());
         }
-    
+    }
+
     @Override
     public List<Employee> findEmployeesByDepartment(Department department) {
         List<Employee> EmployeesInDepartment = new ArrayList<>();
@@ -53,7 +54,7 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
     @Override
     public void changeEmployeeExperienceLevel(Employee empleado, ExperienceLevel newLevel) {
         empleado.setExperienceLevel(newLevel);
-}
+    }
 
 
     @Override
@@ -62,14 +63,10 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
         return resultado;
     }
 
-   // @Override
-    //public  boolean isDepartmentFullyCovered(Department departamento){
-    //    boolean iscovered = false;
-
-
-
-      //  return true;
-    //}
+    @Override
+    public boolean isDepartmentFullyCovered(Department departamento) {
+    return employees.stream().filter(e -> e.getDepartment() == departamento).map(e -> e.getShift()).distinct().count() == Shift.values().length;
+        //{}
     }
-
+}
 

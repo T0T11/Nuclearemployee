@@ -19,5 +19,5 @@ public interface EmployeeManagementService {
      void changeEmployeeExperienceLevel(Employee empleado, ExperienceLevel newLevel);
 
     Map<String, Long> getExperienceLevelStatistics();
-   // boolean isDepartmentFullyCovered(Department departamento);
+    boolean isDepartmentFullyCovered(Department departamento);
 }
